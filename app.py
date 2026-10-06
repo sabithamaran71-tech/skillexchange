@@ -498,7 +498,8 @@ def logout():
 
 # ---------- RUN ----------
 
+create_database()
+remove_duplicate_connections()
+
 if __name__ == "__main__":
-    create_database()
-    remove_duplicate_connections()
     app.run(debug=True)
