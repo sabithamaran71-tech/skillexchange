@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Learning Room - SkillExchange</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>SkillExchange</h2>
+
+    <div>
+
+        <a href="/dashboard">Dashboard</a>
+        <a href="/connections">My Connections</a>
+        <a href="/logout">Logout</a>
+
+    </div>
+
+</nav>
+
+
+<div class="dashboard">
+
+    <h1>📚 Learning Room</h1>
+
+
+    <!-- TEACHER DETAILS -->
+
+    <div class="card">
+
+        <h2>Teacher: {{ partner["name"] }}</h2>
+
+        <p>
+            <b>Skill You Can Learn:</b>
+            {{ partner["teach_skill"] }}
+        </p>
+
+    </div>
+
+
+    <!-- ADD RESOURCE -->
+
+    <div class="card">
+
+    <h2>➕ Add Learning Resource</h2>
+
+    <form method="POST"
+          action="/add-resource/{{ partner['id'] }}">
+
+        <input
+            type="text"
+            name="title"
+            placeholder="Resource Title"
+            required>
+
+        <input
+            type="url"
+            name="link"
+            placeholder="https://example.com"
+            required>
+
+        <button type="submit">
+            Add Resource 📚
+        </button>
+
+    </form>
+
+</div>
+
+    <!-- LEARNING MATERIALS -->
+
+    <div class="card">
+
+        <h2>📖 Learning Materials</h2>
+
+        {% for resource in resources %}
+
+            <p>
+                📘 <b>{{ resource["title"] }}</b>
+            </p>
+
+            <a href="{{ resource['link'] }}" target="_blank">
+                <button>Open Resource 🔗</button>
+            </a>
+            <a href="/delete-resource/{{ resource['id'] }}">
+                <button>Delete ❌</button>
+            </a>
+
+            <hr>
+
+        {% else %}
+
+            <p>
+                No learning resources added yet.
+            </p>
+
+        {% endfor %}
+
+    </div>
+
+
+    <!-- LEARNING TOGETHER -->
+
+    <div class="card">
+
+    <h2>💬 Learning Discussion</h2>
+
+    {% for msg in messages %}
+
+        <p>
+            <b>{{ msg["name"] }}:</b>
+            {{ msg["message"] }}
+        </p>
+
+        <hr>
+
+    {% else %}
+
+        <p>No messages yet. Start the discussion!</p>
+
+    {% endfor %}
+
+    <form method="POST"
+          action="/send-message/{{ partner['id'] }}">
+
+        <input
+            type="text"
+            name="message"
+            placeholder="Type your message..."
+            required>
+
+        <button type="submit">
+            Send 💬
+        </button>
+
+    </form>
+
+</div>
+
+
+    <a href="/connections">
+
+        <button>
+            ← Back to Connections
+        </button>
+
+    </a>
+
+</div>
+
+
+</body>
+
+</html>

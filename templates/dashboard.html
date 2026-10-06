@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard - SkillExchange</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+
+    <h2>SkillExchange</h2>
+
+    <div>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+</nav>
+
+<div class="dashboard">
+
+    <h1>Welcome, {{ user["name"] }} 👋</h1>
+
+    <div class="card">
+        <h2>Connection Requests 🤝</h2>
+
+    <a href="/requests">
+        <button>View Requests</button>
+    </a>
+
+</div>
+
+
+<!-- ⭐ MY CONNECTIONS -->
+
+<div class="card">
+
+    <h2>My Connections 🤝</h2>
+
+    <p>View the people you are connected with.</p>
+
+    <a href="/connections">
+        <button>My Connections</button>
+    </a>
+
+</div>
+<div class="card">
+
+    <h2>📚 Learning Room</h2>
+
+    <p>
+        Connect with your learning partner,
+        share resources and discuss skills.
+    </p>
+
+    <a href="/connections">
+        <button>
+            Open Learning Room 📚
+        </button>
+    </a>
+
+</div>
+
+
+<div class="card">
+
+    <h2>My Skills</h2>
+
+    <p>
+        <b>I Can Teach:</b>
+        {{ user["teach_skill"] }}
+    </p>
+
+    <p>
+        <b>I Want To Learn:</b>
+        {{ user["learn_skill"] }}
+    </p>
+
+</div>
+<a href="/edit-profile">
+    <button>Edit Profile ✏️</button>
+</a>
+
+        
+
+    <div class="card">
+
+        <h2>Skill Exchange</h2>
+
+        <p>
+            Find people who can teach you new skills.
+        </p>
+
+        <a href="/matches">
+    <button>Find Matches</button>
+</a>
+    </div>
+
+</div>
+
+</body>
+</html>

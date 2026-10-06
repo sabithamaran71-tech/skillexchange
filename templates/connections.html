@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Connections - SkillExchange</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+
+    <h2>SkillExchange</h2>
+
+    <div>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+</nav>
+
+<div class="dashboard">
+
+    <h1>My Connections 🤝</h1>
+
+    {% for person in connections %}
+
+    <div class="card">
+
+        <h2>{{ person["name"] }}</h2>
+
+        <p>
+            <b>Email:</b> {{ person["email"] }}
+        </p>
+
+        <p>
+            <b>Can Teach:</b> {{ person["teach_skill"] }}
+        </p>
+
+        <p>
+            <b>Wants To Learn:</b> {{ person["learn_skill"] }}
+        </p>
+
+    </div>
+    <a href="/learn/{{ person['id'] }}">
+    <button>Start Learning 📚</button>
+</a>
+
+    {% else %}
+
+    <div class="card">
+        <h2>No Connections Yet</h2>
+        <p>Accept a connection request to see people here.</p>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

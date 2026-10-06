@@ -1,0 +1,154 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+}
+
+/* NAVBAR */
+
+nav {
+    background: #243b55;
+    color: white;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h2 {
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: white;
+}
+
+.hero h1 {
+    font-size: 45px;
+    margin-bottom: 15px;
+    color: #243b55;
+}
+
+.hero p {
+    font-size: 19px;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* DASHBOARD */
+
+.dashboard {
+    width: 85%;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.dashboard > h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* CARDS */
+
+.card {
+    background: white;
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    color: #243b55;
+}
+
+/* BUTTONS */
+
+button {
+    background: #243b55;
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin: 6px 4px;
+    font-size: 14px;
+}
+
+button:hover {
+    background: #141e30;
+}
+
+/* FORMS */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #243b55;
+}
+
+/* LINKS */
+
+a {
+    text-decoration: none;
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #666;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    nav {
+        padding: 15px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav a {
+        margin-left: 10px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .dashboard {
+        width: 92%;
+    }
+
+}

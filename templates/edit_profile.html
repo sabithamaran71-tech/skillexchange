@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Edit Profile - SkillExchange</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>SkillExchange 🎓</h2>
+
+    <div>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+</nav>
+
+
+<div class="dashboard">
+
+    <div class="card">
+
+        <h1>✏️ Edit Profile</h1>
+
+        <form method="POST">
+
+            <label>Name</label>
+
+            <input
+                type="text"
+                name="name"
+                value="{{ user['name'] }}"
+                required>
+
+
+            <label>Skill I Can Teach</label>
+
+            <input
+                type="text"
+                name="teach_skill"
+                value="{{ user['teach_skill'] }}"
+                required>
+
+
+            <label>Skill I Want To Learn</label>
+
+            <input
+                type="text"
+                name="learn_skill"
+                value="{{ user['learn_skill'] }}"
+                required>
+
+
+            <button type="submit">
+                Save Changes 💾
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

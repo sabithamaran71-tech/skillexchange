@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register - SkillExchange</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="form-box">
+
+    <h1>Create Account</h1>
+
+    <form method="POST">
+
+        <input type="text" name="name"
+               placeholder="Full Name" required>
+
+        <input type="email" name="email"
+               placeholder="Email" required>
+
+        <input type="password" name="password"
+               placeholder="Password" required>
+
+        <input type="text" name="teach_skill"
+               placeholder="Skill You Can Teach" required>
+
+        <input type="text" name="learn_skill"
+               placeholder="Skill You Want To Learn" required>
+
+        <button type="submit">Register</button>
+
+    </form>
+
+    <p>
+        Already have an account?
+        <a href="/login">Login</a>
+    </p>
+
+</div>
+
+</body>
+</html>

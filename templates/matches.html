@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Skill Matches - SkillExchange</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+    <h2>SkillExchange</h2>
+
+```
+<div>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/logout">Logout</a>
+</div>
+```
+
+</nav>
+
+<div class="dashboard">
+
+```
+<h1>Skill Matches 🔍</h1>
+<p>
+    <b>You want to learn:</b>
+    {{ current_user["learn_skill"] }}
+</p>
+
+{% if users %}
+
+    {% for person in users %}
+
+    <div class="card">
+
+        <h2>{{ person["name"] }}</h2>
+
+        <p>
+            <b>Can Teach:</b>
+            {{ person["teach_skill"] }}
+        </p>
+
+        <p>
+            <b>Wants To Learn:</b>
+            {{ person["learn_skill"] }}
+        </p>
+
+        <a href="/connect/{{ person['id'] }}">
+            <button>Connect</button>
+        </a>
+    </div>
+
+    {% endfor %}
+
+{% else %}
+
+    <div class="card">
+        <h2>No other users yet 😔</h2>
+        <p>Register another user to see skill matches.</p>
+    </div>
+
+{% endif %}
+```
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Connection Requests</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav>
+    <h2>SkillExchange</h2>
+
+    <div>
+        <a href="/dashboard">Dashboard</a>
+        <a href="/logout">Logout</a>
+    </div>
+</nav>
+
+<div class="dashboard">
+
+    <h1>Connection Requests 🤝</h1>
+
+    {% for req in requests %}
+
+    <div class="card">
+
+        <h2>{{ req["name"] }}</h2>
+
+        <p>
+            <b>Can Teach:</b> {{ req["teach_skill"] }}
+        </p>
+        <p>
+    <b>Wants To Learn:</b>
+    {{ req["learn_skill"] }}
+</p>
+
+        <a href="/accept/{{ req['id'] }}">
+            <button>Accept</button>
+        </a>
+
+        <a href="/reject/{{ req['id'] }}">
+            <button>Reject</button>
+        </a>
+
+    </div>
+
+    {% else %}
+
+    <div class="card">
+        <h2>No Requests</h2>
+        <p>You don't have any connection requests.</p>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+</body>
+</html>
